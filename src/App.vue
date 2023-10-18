@@ -1,11 +1,27 @@
-<script setup lang="ts">
+<script lang="ts">
 import { ref } from 'vue';
-const count = ref('Hello Vue3');
-console.log(count.value);
+
+export default {
+  setup() {
+    const msg = ref('Hello Vue3');
+    const count = ref(0);
+    function increment() {
+      count.value++;
+    }
+    return {
+      count,
+      msg,
+      increment
+    }
+  }
+}
 </script>
 
 <template>
-  <span>message {{ 'Hello Vue3' }}</span>
+  <h1 style="color: #333;">{{ msg }}</h1>
+  <h1 style="color: #333;">{{ count }}</h1>
+  <button @click="count++">{{ count }}</button>
+  <button @click="increment">increment</button>
 </template>
 
 <style scoped>
