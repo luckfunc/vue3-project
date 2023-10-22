@@ -1,45 +1,15 @@
-<!-- <script lang="ts">
-import { ref } from 'vue';
-
-export default {
-  setup() {
-    const msg = ref('Hello Vue3');
-    const count = ref(0);
-    function increment() {
-      count.value++;
-    }
-    return {
-      count,
-      msg,
-      increment
-    }
-  }
-}
+<script setup lang='ts'>
+import { reactive } from 'vue';
+const state = reactive({
+  count: 0,
+});
+const increment = () => {
+  state.count++;
+};
 </script>
 
 <template>
-  <h1 style="color: #333;">{{ msg }}</h1>
-  <h1 style="color: #333;">{{ count }}</h1>
-  <button @click="count++">{{ count }}</button>
-  <button @click="increment">increment</button>
-</template>
-
-<style scoped>
-
-</style> -->
-<script setup lang="ts">
-import { ref } from 'vue';
-
-// const msg = ref('Hello Vue3');
-const count = ref(0);
-function increment() {
-  console.log('increment', count.value);
-  count.value++;
-}
-</script>
-
-<template>
-  <h1 style="color: #333;">{{ count }}</h1>
-  <button @click="count++">{{ 'Add' }}</button>
-  <button @click="increment">increment</button>
+  <button @click='increment'>
+    {{ state.count }}
+  </button>
 </template>
